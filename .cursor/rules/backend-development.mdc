@@ -1,0 +1,159 @@
+# 后端开发规则
+
+## API 设计原则
+
+### RESTful API
+- 使用标准 HTTP 方法（GET、POST、PUT、DELETE）
+- 资源命名使用复数形式（例如：`/users`、`/posts`）
+- 使用适当的 HTTP 状态码
+- 版本化 API（例如：`/api/v1/users`）
+
+### API 响应格式
+```json
+{
+  "success": true,
+  "data": {},
+  "message": "操作成功",
+  "timestamp": "2024-01-01T00:00:00Z"
+}
+```
+
+### 错误处理
+```json
+{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "输入数据无效",
+    "details": []
+  },
+  "timestamp": "2024-01-01T00:00:00Z"
+}
+```
+
+## Node.js 开发
+
+### 项目结构
+```
+src/
+├── controllers/    # 控制器
+├── models/        # 数据模型
+├── routes/        # 路由定义
+├── middleware/    # 中间件
+├── services/      # 业务逻辑
+├── utils/         # 工具函数
+├── config/        # 配置文件
+└── validators/    # 数据验证
+```
+
+### 最佳实践
+- 使用 Express.js 或 Fastify 框架
+- 实现适当的错误处理中间件
+- 使用环境变量管理配置
+- 实现请求日志记录
+- 使用 Helmet.js 增强安全性
+
+### 异步处理
+```javascript
+// 控制器示例
+const getUser = async (req, res, next) => {
+  try {
+    const user = await userService.findById(req.params.id);
+    res.json({ success: true, data: user });
+  } catch (error) {
+    next(error);
+  }
+};
+```
+
+## Python 开发
+
+### 项目结构
+```
+project/
+├── app/
+│   ├── models/     # 数据模型
+│   ├── views/      # 视图/控制器
+│   ├── services/   # 业务逻辑
+│   └── utils/      # 工具函数
+├── tests/          # 测试文件
+├── requirements.txt
+└── config.py
+```
+
+### 代码风格
+- 遵循 PEP 8 规范
+- 使用类型提示（Type Hints）
+- 编写 docstring 文档
+- 使用虚拟环境管理依赖
+
+### Flask/FastAPI 示例
+```python
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class User(BaseModel):
+    name: str
+    email: str
+
+@app.post("/users/")
+async def create_user(user: User):
+    try:
+        result = await user_service.create(user)
+        return {"success": True, "data": result}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+```
+
+## 数据库设计
+
+### 关系型数据库
+- 使用适当的索引优化查询
+- 设计规范化的表结构
+- 使用外键约束保证数据完整性
+- 实现数据库迁移管理
+
+### NoSQL 数据库
+- MongoDB: 设计合理的文档结构
+- Redis: 适当的缓存策略和过期时间
+- 考虑数据一致性和分片策略
+
+## 安全最佳实践
+
+### 身份认证和授权
+- 使用 JWT 进行无状态认证
+- 实现角色基础的访问控制（RBAC）
+- 密码使用强哈希算法（bcrypt）
+- 实现会话超时机制
+
+### 数据安全
+- 输入验证和清理
+- SQL 注入防护
+- CORS 配置
+- Rate Limiting 限流
+
+### 环境配置
+```javascript
+// 环境变量示例
+const config = {
+  port: process.env.PORT || 3000,
+  dbUrl: process.env.DATABASE_URL,
+  jwtSecret: process.env.JWT_SECRET,
+  nodeEnv: process.env.NODE_ENV || 'development'
+};
+```
+
+## 测试策略
+
+### 测试类型
+- 单元测试：测试单个函数/方法
+- 集成测试：测试组件间交互
+- API 测试：测试端点功能
+- 负载测试：测试性能表现
+
+### 测试工具
+- Node.js: Jest, Mocha, Supertest
+- Python: pytest, unittest
+- 数据库测试：使用测试数据库或内存数据库

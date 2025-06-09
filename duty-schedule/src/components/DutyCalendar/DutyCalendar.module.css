@@ -1,0 +1,1637 @@
+/* 删除旧的样式类，这些已经被新设计替代 */
+
+.dutyCalendar {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0.25rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.header h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navButton {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.navButton:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.monthYear {
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 140px;
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* 顶部一行布局 - 简单直接 */
+.topBar {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* 左侧操作按钮区域 */
+.leftActions {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+}
+
+/* 右侧模式切换区域 */
+.rightModes {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* 模式切换区域 - 移除居中 */
+.modeSection {
+    display: flex;
+    justify-content: center;
+}
+
+.modeSwitch {
+    display: inline-flex;
+    background: #f3f4f6;
+    border-radius: 12px;
+    padding: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.modeButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.modeButton:hover {
+    color: #374151;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.modeButton.active {
+    background: #ffffff;
+    color: #1f2937;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.modeIcon {
+    font-size: 16px;
+}
+
+/* 活动状态显示区域 */
+.activeStateArea {
+    width: 100%;
+}
+
+/* 操作按钮区域 - 保留用于活动状态 */
+.actionSection {
+    display: flex;
+    justify-content: center;
+}
+
+.editActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+/* 通用操作按钮样式 */
+.actionBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.actionBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.actionBtn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btnIcon {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.btnText {
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+
+/* 换班按钮 */
+.swapBtn {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border: 1px solid #d97706;
+}
+
+.swapBtn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #d97706, #b45309);
+}
+
+/* 排班按钮 */
+.assignBtn {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    border: 1px solid #7c3aed;
+}
+
+.assignBtn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+/* 删除按钮和下拉菜单 */
+.deleteDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.deleteBtn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border: 1px solid #dc2626;
+}
+
+.deleteBtn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+.dropdownIcon {
+    font-size: 10px;
+    margin-left: 4px;
+    transition: transform 0.2s ease;
+}
+
+.deleteDropdown:hover .dropdownIcon {
+    transform: rotate(180deg);
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    min-width: 120px;
+    margin-top: 4px;
+}
+
+.deleteDropdown:hover .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdownItem {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font-size: 13px;
+    color: #374151;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdownItem:hover {
+    background: #f3f4f6;
+}
+
+.dropdownItem:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.dropdownItem:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+/* 活动状态面板 */
+.activeMode {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 1px solid #7dd3fc;
+    border-radius: 12px;
+    min-height: 50px;
+}
+
+.modeIndicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.modeText {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0c4a6e;
+}
+
+/* 快速排班面板 */
+.quickAssignPanel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.personSelect {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    background: white;
+    color: #374151;
+    transition: all 0.2s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 48px;
+}
+
+.personSelect:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.selectLabel {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0c4a6e;
+    white-space: nowrap;
+}
+
+.personSelector {
+    padding: 6px 12px;
+    border: 1px solid #7dd3fc;
+    border-radius: 6px;
+    background: white;
+    font-size: 13px;
+    color: #0c4a6e;
+    min-width: 120px;
+}
+
+.personSelector:focus {
+    outline: none;
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.1);
+}
+
+.quickActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* 删除面板 */
+.deletePanel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    border: 1px solid #fca5a5;
+    border-radius: 12px;
+    padding: 12px 16px;
+}
+
+.deleteActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 暂停面板 */
+.suspendPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border: 1px solid #fbbf24;
+    border-radius: 12px;
+    padding: 12px 16px;
+}
+
+.suspendInputs {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.reasonInput {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+}
+
+.reasonInput:focus {
+    outline: none;
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.1);
+}
+
+.suspendActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 操作按钮 */
+.confirmBtn,
+.confirmDeleteBtn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.confirmBtn {
+    background: #10b981;
+    color: white;
+}
+
+.confirmBtn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.confirmDeleteBtn {
+    background: #ef4444;
+    color: white;
+}
+
+.confirmDeleteBtn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.confirmSuspendBtn:hover {
+    background: #d97706;
+    transform: translateY(-1px);
+}
+
+.clearBtn {
+    padding: 6px 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    background: white;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.clearBtn:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+    transform: translateY(-1px);
+}
+
+.exitBtn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    background: #f3f4f6;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.exitBtn:hover {
+    background: #e5e7eb;
+    color: #374151;
+    transform: translateY(-1px);
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+}
+
+.weekHeader {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.weekDay {
+    padding: 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: #4a5568;
+    letter-spacing: 0.5px;
+}
+
+.calendarBody {
+    display: flex;
+    flex-direction: column;
+}
+
+.week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: 1px solid #e9ecef;
+}
+
+.week:last-child {
+    border-bottom: none;
+}
+
+.dayCell {
+    position: relative;
+    min-height: 80px;
+    padding: 0.5rem;
+    border-right: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+.dayCell:last-child {
+    border-right: none;
+}
+
+.dayCell:hover {
+    background: #f8f9fa;
+}
+
+.dayCell.selected {
+    background: rgba(102, 126, 234, 0.1);
+    box-shadow: inset 0 0 0 2px #667eea;
+}
+
+.dayCell.swapSelected {
+    background: rgba(255, 193, 7, 0.2);
+    box-shadow: inset 0 0 0 2px #ffc107;
+}
+
+.dayCell.swappable {
+    cursor: pointer;
+    border: 2px dashed rgba(255, 193, 7, 0.3);
+}
+
+.dayCell.swappable:hover {
+    background: rgba(255, 193, 7, 0.1);
+    border-color: #ffc107;
+}
+
+.dayCell.today {
+    position: relative;
+}
+
+.todayBadge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: linear-gradient(135deg, #ff4757, #ff3742);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    line-height: 1;
+    letter-spacing: 0.1px;
+    box-shadow: 0 2px 4px rgba(255, 71, 87, 0.3);
+    z-index: 10;
+}
+
+.dayCell.weekend {
+    background: rgba(255, 193, 7, 0.05);
+}
+
+.dayCell.otherMonth {
+    background: #f8f9fa;
+    color: #adb5bd;
+}
+
+.dayCell.hasDuty {
+    background: rgba(40, 167, 69, 0.05);
+}
+
+.dayCell.noDuty {
+    background: rgba(220, 53, 69, 0.05);
+}
+
+/* 预览模式样式 */
+.dayCell.previewMode {
+    cursor: default !important;
+    opacity: 0.9;
+}
+
+.dayCell.previewMode:hover {
+    background: inherit !important;
+    transform: none !important;
+}
+
+.dateNumber {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #2d3748;
+    text-align: center;
+}
+
+.dayCell.otherMonth .dateNumber {
+    color: #adb5bd;
+}
+
+.dutyInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.personName {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: #6c757d;
+    color: white;
+    letter-spacing: 0.2px;
+}
+
+.dutyInfo.manual .personName {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.dutyInfo.auto .personName {
+    background: linear-gradient(135deg, #6c757d, #495057);
+}
+
+.dutyInfo.swap .personName {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+}
+
+.dutyInfo.replacement .personName {
+    background: linear-gradient(135deg, #17a2b8, #6610f2);
+}
+
+.typeIndicator {
+    font-size: 12px;
+    color: #6c757d;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.noDutyIndicator {
+    font-size: 13px;
+    color: #718096;
+    font-style: italic;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+/* 快速排班模式下的日历样式 */
+.dayCell.quickAssignMode {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.dayCell.quickAssignable {
+    cursor: pointer;
+    border: 2px solid rgba(111, 66, 193, 0.4);
+    background: rgba(111, 66, 193, 0.1);
+}
+
+.dayCell.quickAssignable:hover {
+    border-color: #6f42c1;
+    background: rgba(111, 66, 193, 0.2);
+    transform: scale(1.02);
+}
+
+.dayCell.quickAssignSelected {
+    border: 2px solid #6f42c1 !important;
+    background: rgba(111, 66, 193, 0.3) !important;
+    box-shadow: inset 0 0 0 1px rgba(111, 66, 193, 0.2);
+}
+
+.dayCell.quickAssignSelected:hover {
+    background: rgba(111, 66, 193, 0.4) !important;
+}
+
+/* 删除模式样式 */
+.dayCell.deleteMode {
+    transition: all 0.2s ease;
+}
+
+.dayCell.deletable {
+    cursor: pointer;
+    border: 2px solid rgba(220, 53, 69, 0.3);
+    background: rgba(220, 53, 69, 0.05);
+}
+
+.dayCell.deletable:hover {
+    background: rgba(220, 53, 69, 0.15) !important;
+    border-color: rgba(220, 53, 69, 0.5);
+    transform: scale(1.02);
+}
+
+.dayCell.deleteSelected {
+    background: rgba(220, 53, 69, 0.25) !important;
+    border: 2px solid #dc3545 !important;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+.dayCell.deleteSelected:hover {
+    background: rgba(220, 53, 69, 0.35) !important;
+}
+
+/* 暂停模式样式 */
+.dayCell.suspendMode {
+    transition: all 0.2s ease;
+}
+
+.dayCell.suspendable {
+    cursor: pointer;
+    border: 2px solid rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.05);
+}
+
+.dayCell.suspendable:hover {
+    background: rgba(245, 158, 11, 0.15) !important;
+    border-color: rgba(245, 158, 11, 0.5);
+    transform: scale(1.02);
+}
+
+.dayCell.suspendSelected {
+    background: rgba(245, 158, 11, 0.25) !important;
+    border: 2px solid #f59e0b !important;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.dayCell.suspendSelected:hover {
+    background: rgba(245, 158, 11, 0.35) !important;
+}
+
+.dayCell.suspended {
+    background: #e9ecef !important;
+    border: 1px solid #ced4da;
+    position: relative;
+}
+
+.suspendedInfo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.suspendedLabel {
+    font-size: 11px;
+    font-weight: 500;
+    color: #6c757d;
+    text-align: center;
+    letter-spacing: 0.3px;
+    padding: 3px 8px;
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 图例区域 */
+.legend {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.modeDescription {
+    margin-bottom: 1rem;
+}
+
+.modeInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    font-size: 14px;
+    color: #495057;
+    font-weight: 500;
+}
+
+.legendItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    color: #495057;
+    font-weight: 600;
+}
+
+.legendColor {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.legendColor.auto {
+    background: linear-gradient(135deg, #6c757d, #495057);
+}
+
+.legendColor.manual {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.legendColor.swap {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+}
+
+.legendColor.replacement {
+    background: linear-gradient(135deg, #17a2b8, #6610f2);
+}
+
+.legendColor.suspended {
+    background: #6c757d;
+}
+
+/* 确认暂停按钮 */
+.confirmSuspendBtn {
+    background: #f59e0b;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+/* 详情面板 */
+.dayDetailPanel {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    min-width: 320px;
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow: hidden;
+}
+
+.panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 20px 24px;
+    border-bottom: 1px solid #f0f0f0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 20px 20px 0 0;
+}
+
+.panelHeader h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 8px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.panelBody {
+    padding: 24px;
+}
+
+.currentAssignment {
+    margin-bottom: 24px;
+    padding: 20px;
+    background: #f8fafe;
+    border-radius: 16px;
+    border-left: 4px solid #667eea;
+}
+
+.currentAssignment p {
+    margin: 8px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #2c3e50;
+}
+
+.currentAssignment strong {
+    font-weight: 600;
+    color: #1a202c;
+}
+
+.noAssignment {
+    color: #718096;
+    font-style: italic;
+    margin-bottom: 24px;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+    background: #f7fafc;
+    border-radius: 12px;
+}
+
+.reassignSection h5 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.assignButton {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+}
+
+.assignButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.assignButton:disabled {
+    background: linear-gradient(135deg, #a0aec0, #cbd5e0);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.detailButton {
+    background: linear-gradient(135deg, #38b2ac, #319795);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 12px;
+    transition: all 0.2s;
+}
+
+.detailButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(56, 178, 172, 0.3);
+}
+
+/* 响应式设计 - 只在手机上垂直布局 */
+@media (max-width: 480px) {
+    .dutyCalendar {
+        margin: 0.25rem;
+        border-radius: 8px;
+    }
+
+    .header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .header h3 {
+        font-size: 20px;
+    }
+
+    .monthYear {
+        font-size: 16px;
+        min-width: 120px;
+    }
+
+    .navButton {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .toolbar {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    /* 移动端topBar改为垂直布局 */
+    .topBar {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        align-items: stretch !important;
+    }
+
+    .leftActions {
+        justify-content: center !important;
+    }
+
+    .rightModes {
+        justify-content: center !important;
+    }
+
+    .editActions {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .actionBtn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .btnText {
+        font-size: 12px;
+    }
+
+    .activeMode {
+        padding: 10px 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .quickAssignPanel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .personSelector {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .quickActions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .deletePanel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .weekDay {
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+
+    .dayCell {
+        min-height: 60px;
+        padding: 0.25rem;
+    }
+
+    .dateNumber {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .personName {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .typeIndicator {
+        font-size: 10px;
+    }
+
+    .noDutyIndicator {
+        font-size: 11px;
+    }
+
+    .legendItem {
+        font-size: 12px;
+        gap: 8px;
+        color: #2d3748;
+        font-weight: 600;
+    }
+
+    .dayDetailPanel {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        transform: none;
+        min-width: auto;
+        max-width: none;
+        border-radius: 16px;
+    }
+
+    .panelHeader {
+        padding: 20px 20px 16px 20px;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .panelHeader h4 {
+        font-size: 18px;
+    }
+
+    .closeButton {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .panelBody {
+        padding: 20px;
+    }
+
+    .currentAssignment {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+
+    .currentAssignment p {
+        font-size: 15px;
+    }
+
+    .reassignSection h5 {
+        font-size: 17px;
+        margin-bottom: 14px;
+    }
+
+    .personSelect {
+        padding: 12px 14px;
+        font-size: 14px;
+        margin-bottom: 14px;
+        padding-right: 44px;
+        background-size: 14px;
+        background-position: right 10px center;
+    }
+
+    .assignButton {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .todayBadge {
+        font-size: 9px;
+        padding: 1px 4px;
+        top: -1px;
+        right: -1px;
+    }
+
+    /* 移动端说明文字样式 */
+    .modeDescription {
+        margin: 0.75rem 1rem;
+        padding: 10px 12px;
+    }
+
+    .modeInfo {
+        font-size: 13px;
+    }
+
+    .swapInstructions,
+    .quickAssignInstructions,
+    .deleteInstructions {
+        margin: 0.75rem 1rem 0;
+        padding: 10px 12px;
+    }
+
+    .swapInstructions p,
+    .quickAssignInstructions p,
+    .deleteInstructions p {
+        font-size: 13px;
+    }
+}
+
+/* 操作说明样式 */
+.swapInstructions,
+.quickAssignInstructions,
+.deleteInstructions {
+    margin: 1rem 1.5rem 0;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border-left: 4px solid;
+}
+
+.swapInstructions {
+    background: rgba(255, 193, 7, 0.1);
+    border-left-color: #ffc107;
+}
+
+.swapInstructions p {
+    margin: 0;
+    color: #856404;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.quickAssignInstructions {
+    background: rgba(111, 66, 193, 0.1);
+    border-left-color: #6f42c1;
+}
+
+.quickAssignInstructions p {
+    margin: 0;
+    color: #6f42c1;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.deleteInstructions {
+    background: rgba(220, 53, 69, 0.1);
+    border-left-color: #dc3545;
+}
+
+.deleteInstructions p {
+    margin: 0;
+    color: #dc3545;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.suspendInstructions {
+    margin: 1rem 1.5rem 0;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border-left: 4px solid #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.suspendInstructions p {
+    margin: 0;
+    color: #92400e;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* 暂停按钮 */
+.suspendBtn {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border: 1px solid #d97706;
+}
+
+.suspendBtn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #d97706, #b45309);
+}
+
+/* 暂停范围选择样式 */
+.suspendRangeMode .suspendable {
+    border: 2px dashed #f59e0b !important;
+    cursor: pointer;
+}
+
+.suspendRangeStart {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    border: 2px solid #d97706 !important;
+    color: white !important;
+    font-weight: bold;
+    animation: suspendRangeStartPulse 2s infinite;
+}
+
+@keyframes suspendRangeStartPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+    }
+}
+
+/* 暂停相关按钮样式 */
+.suspendButton,
+.suspendRangeButton,
+.resumeButton {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+}
+
+.suspendButton {
+    background: #f59e0b;
+    color: white;
+}
+
+.suspendButton:hover {
+    background: #d97706;
+    transform: translateY(-1px);
+}
+
+.suspendRangeButton {
+    background: #3b82f6;
+    color: white;
+}
+
+.suspendRangeButton:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+.resumeButton {
+    background: #10b981;
+    color: white;
+}
+
+.resumeButton:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.suspendSection {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.suspendSection h5 {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.suspendActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dropdownItem:last-child {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* 统一操作菜单样式 */
+.unifiedActionMenu {
+    position: relative;
+    display: inline-block;
+}
+
+.unifiedBtn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-color: #667eea;
+    color: white;
+    min-width: 100px;
+}
+
+.unifiedBtn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #5a67d8, #6b46c1);
+    border-color: #5a67d8;
+    transform: translateY(-1px);
+}
+
+.unifiedDropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+}
+
+.unifiedActionMenu:hover .unifiedDropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 阻止在预览模式下显示下拉菜单 */
+.unifiedActionMenu:has(.unifiedBtn:disabled):hover .unifiedDropdownMenu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px) !important;
+}
+
+/* 备用方案：使用属性选择器 */
+.unifiedActionMenu[data-disabled="true"]:hover .unifiedDropdownMenu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px) !important;
+}
+
+/* 禁用状态的操作菜单样式 */
+.unifiedActionMenu[data-disabled="true"] {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.unifiedActionMenu[data-disabled="true"] .unifiedBtn {
+    cursor: not-allowed;
+    background: #9ca3af !important;
+    border-color: #9ca3af !important;
+}
+
+.unifiedActionMenu[data-disabled="true"] .unifiedBtn:hover {
+    transform: none !important;
+}
+
+.unifiedDropdownMenu .dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border-radius: 0;
+}
+
+.unifiedDropdownMenu .dropdownItem:hover:not(:disabled) {
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+.unifiedDropdownMenu .dropdownItem:disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.unifiedDropdownMenu .dropdownItem:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.unifiedDropdownMenu .dropdownItem:last-child {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.unifiedDropdownMenu .dropdownIcon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.dropdownDivider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 4px 0;
+}
+
+/* 💪 强制修复 topBar 一行布局 - 最高优先级 */
+.dutyCalendar .toolbar .topBar {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.dutyCalendar .toolbar .topBar .leftActions {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+}
+
+.dutyCalendar .toolbar .topBar .rightModes {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* 替班面板样式 */
+.replacementPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    background: linear-gradient(135deg, #e0f2fe, #b3e5fc);
+    border: 1px solid #0288d1;
+    border-radius: 12px;
+    padding: 12px 16px;
+}
+
+.replacementInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.replacementDateInfo {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0277bd;
+    padding: 8px 12px;
+    background: rgba(2, 136, 209, 0.1);
+    border-radius: 6px;
+}
+
+.replacementActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 替班模式样式 */
+.dayCell.replacementMode {
+    transition: all 0.2s ease;
+}
+
+.dayCell.replaceable {
+    cursor: pointer;
+    border: 2px solid rgba(2, 136, 209, 0.3);
+    background: rgba(2, 136, 209, 0.05);
+}
+
+.dayCell.replaceable:hover {
+    background: rgba(2, 136, 209, 0.15) !important;
+    border-color: rgba(2, 136, 209, 0.5);
+    transform: scale(1.02);
+}
+
+.dayCell.replacementSelected {
+    background: rgba(2, 136, 209, 0.25) !important;
+    border: 2px solid #0288d1 !important;
+    box-shadow: 0 2px 8px rgba(2, 136, 209, 0.3);
+}
+
+.dayCell.replacementSelected:hover {
+    background: rgba(2, 136, 209, 0.35) !important;
+}
+
+/* 替班操作说明样式 */
+.replacementInstructions {
+    margin: 1rem 1.5rem 0;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border-left: 4px solid #0288d1;
+    background: rgba(2, 136, 209, 0.1);
+}
+
+.replacementInstructions p {
+    margin: 0;
+    color: #0277bd;
+    font-size: 14px;
+    font-weight: 500;
+}

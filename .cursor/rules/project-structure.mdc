@@ -1,0 +1,208 @@
+# 项目结构规则
+
+## 通用项目结构
+
+### 根目录文件
+- `README.md` - 项目说明文档
+- `.gitignore` - Git 忽略文件配置
+- `package.json` / `requirements.txt` - 依赖管理
+- `.env.example` - 环境变量示例
+- `LICENSE` - 项目许可证
+
+### 配置文件
+- `.eslintrc.js` / `.eslintrc.json` - ESLint 配置
+- `.prettierrc` - Prettier 配置  
+- `tsconfig.json` - TypeScript 配置
+- `vite.config.js` / `webpack.config.js` - 构建工具配置
+
+## 前端项目结构
+
+### React/Vue 应用
+```
+project-name/
+├── public/             # 静态资源
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── components/     # 可复用组件
+│   │   ├── Button/
+│   │   │   ├── index.ts
+│   │   │   ├── Button.tsx
+│   │   │   ├── Button.test.tsx
+│   │   │   └── Button.module.css
+│   │   └── ...
+│   ├── pages/          # 页面组件
+│   │   ├── Home/
+│   │   ├── About/
+│   │   └── ...
+│   ├── hooks/          # 自定义 Hooks
+│   ├── context/        # React Context
+│   ├── services/       # API 服务
+│   ├── utils/          # 工具函数
+│   ├── constants/      # 常量定义
+│   ├── types/          # TypeScript 类型
+│   ├── assets/         # 静态资源
+│   │   ├── images/
+│   │   ├── icons/
+│   │   └── styles/
+│   ├── App.tsx
+│   └── main.tsx
+├── tests/              # 测试文件
+├── docs/               # 项目文档
+└── scripts/            # 构建脚本
+```
+
+### Next.js 应用
+```
+nextjs-app/
+├── public/
+├── src/
+│   ├── app/            # App Router (Next.js 13+)
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── globals.css
+│   │   └── (routes)/
+│   ├── components/
+│   ├── lib/            # 共享库和工具
+│   └── types/
+├── prisma/             # 数据库模式 (如使用 Prisma)
+└── next.config.js
+```
+
+## 后端项目结构
+
+### Node.js + Express
+```
+backend-api/
+├── src/
+│   ├── controllers/    # 控制器
+│   │   ├── auth.controller.js
+│   │   └── user.controller.js
+│   ├── models/         # 数据模型
+│   │   ├── User.js
+│   │   └── index.js
+│   ├── routes/         # 路由定义
+│   │   ├── auth.routes.js
+│   │   ├── user.routes.js
+│   │   └── index.js
+│   ├── middleware/     # 中间件
+│   │   ├── auth.middleware.js
+│   │   ├── error.middleware.js
+│   │   └── validation.middleware.js
+│   ├── services/       # 业务逻辑
+│   │   ├── auth.service.js
+│   │   └── user.service.js
+│   ├── utils/          # 工具函数
+│   │   ├── database.js
+│   │   ├── logger.js
+│   │   └── helpers.js
+│   ├── config/         # 配置文件
+│   │   ├── database.js
+│   │   └── constants.js
+│   ├── validators/     # 数据验证
+│   └── app.js          # 应用入口
+├── tests/              # 测试文件
+│   ├── unit/
+│   ├── integration/
+│   └── fixtures/
+├── migrations/         # 数据库迁移
+├── seeders/           # 数据填充
+└── server.js          # 服务器启动文件
+```
+
+### Python Flask/FastAPI
+```
+python-api/
+├── app/
+│   ├── __init__.py
+│   ├── models/         # 数据模型
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   └── base.py
+│   ├── views/          # 视图/路由
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   └── users.py
+│   ├── services/       # 业务逻辑
+│   │   ├── __init__.py
+│   │   └── user_service.py
+│   ├── utils/          # 工具函数
+│   │   ├── __init__.py
+│   │   ├── database.py
+│   │   └── validators.py
+│   └── config.py       # 配置文件
+├── tests/
+│   ├── __init__.py
+│   ├── test_models.py
+│   └── test_views.py
+├── migrations/         # 数据库迁移
+├── requirements.txt
+├── run.py             # 应用启动文件
+└── wsgi.py           # WSGI 入口
+```
+
+## 全栈项目结构
+
+### Monorepo 结构
+```
+fullstack-app/
+├── frontend/           # 前端应用
+│   ├── src/
+│   ├── package.json
+│   └── ...
+├── backend/            # 后端 API
+│   ├── src/
+│   ├── package.json
+│   └── ...
+├── shared/             # 共享代码
+│   ├── types/          # 类型定义
+│   ├── utils/          # 工具函数
+│   └── constants/      # 常量
+├── docs/               # 项目文档
+├── scripts/            # 部署脚本
+├── docker-compose.yml  # Docker 配置
+├── package.json        # 根级依赖
+└── lerna.json         # Monorepo 配置
+```
+
+## 移动应用结构
+
+### React Native
+```
+mobile-app/
+├── src/
+│   ├── components/     # 可复用组件
+│   ├── screens/        # 屏幕组件
+│   ├── navigation/     # 导航配置
+│   ├── services/       # API 服务
+│   ├── store/          # 状态管理
+│   ├── utils/          # 工具函数
+│   ├── assets/         # 静态资源
+│   │   ├── images/
+│   │   ├── fonts/
+│   │   └── sounds/
+│   └── types/          # 类型定义
+├── __tests__/          # 测试文件
+├── android/            # Android 特定代码
+├── ios/                # iOS 特定代码
+└── metro.config.js     # Metro 配置
+```
+
+## 文件命名约定
+
+### 组件文件
+- React 组件：`ComponentName.tsx`
+- Vue 组件：`ComponentName.vue`
+- 样式文件：`ComponentName.module.css`
+- 测试文件：`ComponentName.test.tsx`
+
+### 工具和服务文件
+- API 服务：`api.service.ts`
+- 工具函数：`string.utils.ts`
+- 常量文件：`api.constants.ts`
+- 类型定义：`user.types.ts`
+
+### 目录命名
+- 使用 kebab-case：`user-profile/`
+- 组件目录使用 PascalCase：`UserProfile/`
+- 功能模块目录：`authentication/`

@@ -1,0 +1,99 @@
+.todayDutyCard {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.todayDutyCard.empty {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #8b4513;
+}
+
+.todayDutyCard h2 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.dutyInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.dateInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.date {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.day {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.personInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.personName {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dutyText {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .todayDutyCard {
+        padding: 1.25rem 1rem;
+        margin: 0;
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+        width: 100%;
+        box-sizing: border-box;
+        flex-shrink: 0;
+    }
+
+    .todayDutyCard h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .personName {
+        font-size: 1.4rem;
+    }
+
+    .dutyInfo {
+        gap: 0.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .dutyInfo {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .personInfo {
+        text-align: right;
+    }
+}

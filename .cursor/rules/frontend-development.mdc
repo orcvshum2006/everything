@@ -1,0 +1,79 @@
+# 前端开发规则
+
+## React 开发指南
+
+### 组件设计
+- 优先使用函数组件和 Hooks
+- 组件名使用 PascalCase
+- Props 使用 TypeScript 进行类型定义
+- 将复杂组件拆分为更小的子组件
+
+### 状态管理
+- 本地状态使用 `useState`
+- 副作用使用 `useEffect`
+- 复杂状态逻辑使用 `useReducer`
+- 全局状态考虑 Context API 或 Redux Toolkit
+
+### 文件结构
+```
+components/
+├── Button/
+│   ├── index.ts          # 导出文件
+│   ├── Button.tsx        # 主组件
+│   ├── Button.test.tsx   # 测试文件
+│   └── Button.module.css # 样式文件
+```
+
+## JavaScript/TypeScript 最佳实践
+
+### TypeScript 使用
+- 优先使用 TypeScript 进行开发
+- 定义明确的接口和类型
+- 避免使用 `any` 类型
+- 使用泛型提高代码复用性
+
+### 现代 JavaScript
+- 使用 ES6+ 语法特性
+- 优先使用 `const` 和 `let`，避免 `var`
+- 使用箭头函数和解构赋值
+- 利用模板字符串进行字符串拼接
+
+### 异步处理
+```javascript
+// 推荐：使用 async/await
+const fetchData = async () => {
+  try {
+    const response = await api.getData();
+    return response.data;
+  } catch (error) {
+    console.error('获取数据失败:', error);
+    throw error;
+  }
+};
+```
+
+## CSS 和样式
+
+### CSS 组织
+- 使用 CSS Modules 或 styled-components
+- 遵循 BEM 命名规范
+- 使用 CSS 变量管理主题色彩
+- 响应式设计优先考虑移动端
+
+### 样式最佳实践
+- 避免内联样式
+- 使用 Flexbox 和 Grid 进行布局
+- 保持样式的可维护性和复用性
+
+## 工具和配置
+
+### 开发工具
+- 使用 ESLint 进行代码检查
+- 配置 Prettier 进行代码格式化
+- 使用 Husky 设置 Git hooks
+- 配置路径别名简化导入
+
+### 构建优化
+- 使用代码分割（Code Splitting）
+- 配置适当的打包工具（Vite、Webpack）
+- 优化图片和静态资源加载

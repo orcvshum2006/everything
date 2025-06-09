@@ -1,0 +1,165 @@
+/* 排班记录查看器样式 */
+.schedule-records-viewer {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-records-viewer h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.records-info {
+    background: rgba(108, 117, 125, 0.1);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.empty-records {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+.empty-records p:first-child {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.records-list {
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+}
+
+.record-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 80px 120px;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    align-items: center;
+    background: white;
+    transition: background-color 0.2s;
+}
+
+.record-item:hover {
+    background: #f8f9fa;
+}
+
+.record-item:last-child {
+    border-bottom: none;
+}
+
+.record-date {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.record-person {
+    font-weight: 500;
+    color: #495057;
+    word-break: break-word;
+}
+
+/* 换班操作的箭头图标样式 */
+.record-person:has-text('↔'),
+.record-date:has-text('↔') {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+/* 换班记录的特殊样式 */
+.record-item:has(.record-type.swap) {
+    border-left: 3px solid #ffc107;
+}
+
+.record-item:has(.record-type.swap) .record-date,
+.record-item:has(.record-type.swap) .record-person {
+    color: #856404;
+}
+
+.record-type {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.record-type.manual {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* 批量手动分配的特殊样式 */
+.record-type.manual.batch {
+    background: linear-gradient(135deg, #d4edda 0%, #b8daff 100%);
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+    font-weight: 600;
+}
+
+/* 为批量分配记录添加左边框标识 */
+.record-item.batch-manual {
+    border-left: 3px solid #17a2b8;
+}
+
+.record-item.batch-manual .record-date {
+    color: #0c5460;
+    font-weight: 600;
+}
+
+.record-type.swap {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.record-type.replacement {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.record-type.auto {
+    background: #f8f9fa;
+    color: #6c757d;
+}
+
+.record-time {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.more-records {
+    padding: 1rem;
+    text-align: center;
+    color: #6c757d;
+    background: #f8f9fa;
+    font-size: 0.9rem;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .record-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+
+    .record-date {
+        font-size: 1rem;
+        color: #007bff;
+    }
+
+    .record-type {
+        justify-self: start;
+        width: fit-content;
+    }
+}

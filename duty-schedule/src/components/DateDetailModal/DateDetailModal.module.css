@@ -1,0 +1,314 @@
+/* 模态框遮罩 */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+/* 模态框内容 */
+.modalContent {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 模态框头部 */
+.modalHeader {
+    padding: 24px 32px 20px;
+    border-bottom: 2px solid #f7fafc;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.modalHeader h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.todayBadge {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.closeButton {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.closeButton:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* 模态框主体 */
+.modalBody {
+    padding: 32px;
+}
+
+.section {
+    margin-bottom: 32px;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section h4 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 排班信息 */
+.assignmentInfo {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 16px;
+    border-left: 4px solid #667eea;
+}
+
+.personCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.personName {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.typeTag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.typeTag.auto {
+    background: #e6fffa;
+    color: #38b2ac;
+}
+
+.typeTag.manual {
+    background: #fff5f5;
+    color: #e53e3e;
+}
+
+.typeTag.swap {
+    background: #fffbeb;
+    color: #d69e2e;
+}
+
+.typeTag.replacement {
+    background: #f0fff4;
+    color: #38a169;
+}
+
+.reason,
+.timestamp {
+    margin: 8px 0;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+.autoNote {
+    color: #38b2ac;
+    font-style: italic;
+    margin: 8px 0 0 0;
+    font-size: 14px;
+}
+
+.noAssignment {
+    color: #a0aec0;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 轮转详情 */
+.rotationDetails p {
+    margin: 8px 0;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+.deviation {
+    background: #fff5f5;
+    color: #e53e3e;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 12px !important;
+    font-weight: 500;
+}
+
+/* 统计网格 */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.statItem {
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.statItem:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+.statLabel {
+    display: block;
+    font-size: 12px;
+    color: #718096;
+    font-weight: 500;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.statValue {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+/* 操作建议 */
+.suggestions p {
+    margin: 8px 0;
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .modalOverlay {
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 40px;
+    }
+
+    .modalContent {
+        max-height: 85vh;
+        border-radius: 16px;
+    }
+
+    .modalHeader {
+        padding: 20px 24px 16px;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .modalHeader h3 {
+        font-size: 20px;
+    }
+
+    .modalBody {
+        padding: 24px;
+    }
+
+    .section {
+        margin-bottom: 24px;
+    }
+
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .statItem {
+        padding: 12px;
+    }
+
+    .statValue {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modalHeader {
+        padding: 16px 20px 12px;
+    }
+
+    .modalHeader h3 {
+        font-size: 18px;
+    }
+
+    .modalBody {
+        padding: 20px;
+    }
+
+    .personCard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+}

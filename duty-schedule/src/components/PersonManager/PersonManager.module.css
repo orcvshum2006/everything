@@ -1,0 +1,403 @@
+.personManager {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+}
+
+.personManager h3 {
+    margin: 0 0 24px 0;
+    color: #1a202c;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: 0.5px;
+}
+
+.addPersonForm {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: stretch;
+}
+
+.nameInput {
+    flex: 1;
+    padding: 16px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #1a202c;
+    background: white;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    min-height: 48px;
+}
+
+.nameInput::placeholder {
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+.nameInput:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+    color: #1a202c;
+}
+
+.addButton {
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+    min-width: 100px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.5);
+}
+
+.addButton:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.peopleList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.listHeader {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    text-align: center;
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 48px 24px;
+    color: #64748b;
+}
+
+.emptyIcon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.6;
+}
+
+.emptyMessage {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1e293b;
+}
+
+.emptyHint {
+    font-size: 15px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.personItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #fafbfb 0%, #ffffff 100%);
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    min-height: 72px;
+}
+
+.personItem:hover {
+    border-color: #667eea;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+.personInfo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.personOrder {
+    font-weight: 800;
+    color: #667eea;
+    min-width: 40px;
+    font-size: 18px;
+    background: rgba(102, 126, 234, 0.15);
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.personName {
+    flex: 1;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1a202c;
+    word-break: break-all;
+    letter-spacing: 0.2px;
+}
+
+.personStatus {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(34, 197, 94, 0.15);
+    color: #166534;
+    white-space: nowrap;
+    letter-spacing: 0.2px;
+    border: 2px solid rgba(34, 197, 94, 0.2);
+}
+
+.personActions {
+    display: flex;
+    gap: 8px;
+    margin-left: 16px;
+}
+
+.moveButton,
+.removeButton {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 800;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.moveButton {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    color: #475569;
+    border: 2px solid #e2e8f0;
+}
+
+.moveButton:hover:not(:disabled) {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: #1e293b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.moveButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.upButton:hover:not(:disabled) {
+    border-color: #22c55e;
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.1);
+}
+
+.downButton:hover:not(:disabled) {
+    border-color: #f59e0b;
+    color: #d97706;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.removeButton {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+    border: 2px solid #ef4444;
+}
+
+.removeButton:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.5);
+}
+
+.tips {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 24px;
+    border-left: 4px solid #667eea;
+    border: 2px solid #e2e8f0;
+}
+
+.tip {
+    margin: 12px 0;
+    font-size: 15px;
+    color: #1e293b;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.tip strong {
+    color: #1a202c;
+    font-weight: 700;
+}
+
+/* 响应式优化 - 重点保持单行布局 */
+@media (max-width: 768px) {
+    .personManager {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .personManager h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .addPersonForm {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .nameInput {
+        padding: 14px 16px;
+        font-size: 16px;
+        min-height: 48px;
+    }
+
+    .addButton {
+        padding: 14px 20px;
+        font-size: 16px;
+        min-width: auto;
+        min-height: 48px;
+    }
+
+    .listHeader {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+
+    .personItem {
+        padding: 14px 16px;
+        min-height: 64px;
+        /* 保持单行布局 */
+    }
+
+    .personInfo {
+        gap: 12px;
+    }
+
+    .personName {
+        font-size: 16px;
+    }
+
+    .personOrder {
+        font-size: 16px;
+        min-width: 36px;
+        padding: 6px 8px;
+    }
+
+    .personStatus {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .personActions {
+        gap: 6px;
+        margin-left: 12px;
+        flex-shrink: 0;
+    }
+
+    .moveButton,
+    .removeButton {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .tips {
+        padding: 16px;
+        margin-top: 20px;
+    }
+
+    .tip {
+        font-size: 14px;
+    }
+
+    .emptyState {
+        padding: 32px 20px;
+    }
+
+    .emptyIcon {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .emptyMessage {
+        font-size: 16px;
+    }
+
+    .emptyHint {
+        font-size: 14px;
+    }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+
+    .moveButton,
+    .removeButton {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .addButton {
+        min-height: 44px;
+    }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+    .personItem {
+        border: 2px solid #000;
+    }
+
+    .moveButton {
+        border: 2px solid #000;
+        background: #fff;
+        color: #000;
+    }
+
+    .removeButton {
+        background: #000;
+        color: #fff;
+        border: 2px solid #000;
+    }
+}

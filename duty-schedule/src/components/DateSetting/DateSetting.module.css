@@ -1,0 +1,289 @@
+.dateSetting {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+}
+
+.dateSetting h3 {
+    margin: 0 0 24px 0;
+    color: #1a202c;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: 0.5px;
+}
+
+.dateInputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.dateInputContainer {
+    position: relative;
+    max-width: 280px;
+    cursor: pointer;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.dateInputContainer:hover {
+    border-color: #667eea;
+    background: #fafbff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.dateInputContainer:focus-within {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+    transform: translateY(-1px);
+}
+
+.dateInput {
+    width: 100%;
+    padding: 16px 50px 16px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: transparent;
+    background: transparent;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    min-height: 48px;
+    cursor: pointer;
+    box-sizing: border-box;
+    /* 隐藏原生日期选择器但保持功能 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color-scheme: light;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.dateDisplay {
+    padding: 16px 50px 16px 20px;
+    font-size: 16px;
+    color: #1a202c;
+    font-weight: 600;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    pointer-events: none;
+    border-radius: 10px;
+}
+
+.dateIcon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 16px;
+    color: #667eea;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.dateInput::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+    opacity: 0;
+}
+
+.dateInput:focus {
+    outline: none;
+}
+
+.dateInputContainer:hover .dateIcon {
+    color: #5a67d8;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* 当没有选择日期时的样式 */
+.dateInputContainer:has(input[value=""]) .dateDisplay {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* 状态卡片 */
+.statusCard {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    border-left: 4px solid #667eea;
+    max-width: 280px;
+}
+
+.statusIcon {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.statusInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.statusLabel {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.statusValue {
+    font-size: 16px;
+    color: #1a202c;
+    font-weight: 700;
+}
+
+/* 帮助说明区域 */
+.helpSection {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+}
+
+.helpTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.helpContent {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.helpItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: #1e293b;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.helpIcon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .dateSetting {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .dateSetting h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .dateInputWrapper {
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+
+    .dateInputContainer {
+        max-width: 100%;
+    }
+
+    .dateInput,
+    .dateDisplay {
+        padding: 14px 46px 14px 16px;
+        font-size: 16px;
+        min-height: 48px;
+    }
+
+    .dateIcon {
+        right: 14px;
+        font-size: 14px;
+    }
+
+    .statusCard {
+        padding: 14px 16px;
+        gap: 12px;
+        max-width: 100%;
+    }
+
+    .statusIcon {
+        font-size: 20px;
+    }
+
+    .statusLabel {
+        font-size: 13px;
+    }
+
+    .statusValue {
+        font-size: 15px;
+    }
+
+    .helpSection {
+        padding: 16px;
+    }
+
+    .helpTitle {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .helpItem {
+        font-size: 14px;
+        gap: 10px;
+    }
+
+    .helpIcon {
+        font-size: 14px;
+        width: 18px;
+    }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+    .dateInputContainer {
+        border: 2px solid #000;
+    }
+
+    .statusCard {
+        border: 2px solid #000;
+    }
+
+    .helpSection {
+        border: 2px solid #000;
+    }
+}

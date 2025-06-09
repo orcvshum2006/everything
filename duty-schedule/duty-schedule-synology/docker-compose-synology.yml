@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  duty-schedule:
+    image: duty-schedule:latest
+    container_name: duty-schedule
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    volumes:
+      # 持久化数据库文件
+      - ./data:/app/data
+      # 可选：如果需要持久化日志
+      - ./logs:/app/logs
+    environment:
+      - NODE_ENV=production
+      - PORT=8081
+      - HOST=0.0.0.0
+    networks:
+      - duty-schedule-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:8081/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) }).on('error', () => process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  duty-schedule-network:
+    driver: bridge

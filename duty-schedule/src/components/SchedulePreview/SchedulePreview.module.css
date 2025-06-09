@@ -1,0 +1,115 @@
+.schedulePreview {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.schedulePreview h3 {
+    margin: 0 0 1.5rem 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.emptyMessage {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 2rem;
+}
+
+.scheduleList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.scheduleItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    transition: all 0.2s;
+}
+
+.scheduleItem.today {
+    background: linear-gradient(135deg, #fff3cd, #ffeeba);
+    border-color: #ffc107;
+    transform: scale(1.02);
+}
+
+.scheduleDate {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.scheduleDate .date {
+    font-weight: 500;
+    color: #333;
+}
+
+.scheduleDate .day {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.schedulePerson {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.personName {
+    font-weight: 500;
+    color: #333;
+}
+
+.suspended {
+    font-weight: 500;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.unassigned {
+    font-weight: 500;
+    color: #dc3545;
+    font-style: italic;
+}
+
+.todayBadge {
+    background: #ffc107;
+    color: #856404;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .schedulePreview {
+        margin: 0;
+        padding: 1.25rem 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+        width: 100%;
+        box-sizing: border-box;
+        flex-shrink: 0;
+    }
+
+    .schedulePreview h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .scheduleItem {
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: center;
+        padding: 0.75rem;
+    }
+}
